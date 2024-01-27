@@ -37,7 +37,16 @@ public class ArmRotator : MonoBehaviour
                 }
 
                 t = Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount);
-                cj.targetRotation = GetRotationTarget();
+                
+                if(isLeftLimb)
+                {
+                    cj.targetRotation = GetRotationTarget();
+                }
+                else
+                {
+                    cj.targetRotation = Quaternion.Inverse(GetRotationTarget());
+                }
+                
             }
             else
             {
@@ -51,15 +60,10 @@ public class ArmRotator : MonoBehaviour
     {
         Quaternion rotationTarget;
 
-        if (isLeftLimb)
-        {
-            rotationTarget = Quaternion.Euler(startingRotation.x, Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.z);
-        }
-       else
-        {
-            rotationTarget = Quaternion.Euler(startingRotation.x, -Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.z);
-        }
-
+       
+        rotationTarget = Quaternion.Euler(startingRotation.x, Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.z);
+        
+       
         return rotationTarget;
     }
 

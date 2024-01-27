@@ -14,15 +14,8 @@ public class LegRotator : ArmRotator
     {
         Quaternion rotationTarget; 
         
-        if(isLeftLimb)
-        {
-            rotationTarget = Quaternion.Euler(Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.x, startingRotation.z);
-        }
-        else
-        {
-            rotationTarget = Quaternion.Euler(-Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.x, startingRotation.z);
-        }
-
+        rotationTarget = Quaternion.Euler(Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount * 2) - pingPongAngleAmount, startingRotation.x, startingRotation.z);
+        
         return rotationTarget;
     }
 }
