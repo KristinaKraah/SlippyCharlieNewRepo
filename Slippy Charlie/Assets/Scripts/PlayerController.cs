@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(isGrounded)
                     {
-                        hips.AddForce(new Vector3(0, jumpForce, 0));
+                        hips.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
                         isGrounded = false;
                     }
                 }
