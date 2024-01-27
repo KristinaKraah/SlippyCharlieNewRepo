@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class transition : MonoBehaviour
+public class Transition : MonoBehaviour
 {
     RectTransform rectTransform;
     [SerializeField]
