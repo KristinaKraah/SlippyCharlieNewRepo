@@ -12,12 +12,19 @@ public class BodyCollision : MonoBehaviour
     private List<AudioClip> fallSounds = new List<AudioClip>();
     private AudioClip fallsfx001;
     private AudioClip fallsfx002;
+    private AudioClip fallsfx003;
+    private AudioClip fallsfx004;
+    private AudioClip fallsfx005;
+
     private bool alreadyPlayed = false;
 
     private void Awake()
     {
         fallsfx001 = (AudioClip)Resources.Load("SFX/FallSFX001");
-        fallsfx001 = (AudioClip)Resources.Load("SFX/FallSFX002");
+        fallsfx002 = (AudioClip)Resources.Load("SFX/FallSFX002");
+        fallsfx003 = (AudioClip)Resources.Load("SFX/FallsFX003");
+        fallsfx004 = (AudioClip)Resources.Load("SFX/FallsFX004");
+        fallsfx005 = (AudioClip)Resources.Load("SFX/FallsFX005");
     }
     // Start is called before the first frame update
     void Start()
@@ -52,5 +59,8 @@ public class BodyCollision : MonoBehaviour
     {
         fallSounds.Add(fallsfx001);
         fallSounds.Add(fallsfx002);
+        fallSounds.Add(fallsfx003);
+        fallSounds.Add(fallsfx004);
+        fallSounds.Add(fallsfx005);
     }
 }
