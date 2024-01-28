@@ -11,11 +11,11 @@ public class GameManager : MonoBehaviour
     public Cinemachine.CinemachineVirtualCamera virtualCamera; 
 
     public GameObject transitionTarget;
+    public AudioSource cameraAudioSrc;
 
     private Transform  playerStart;
     private GameObject SpawnPoint;
     private AudioManager audioManager;
-    private AudioSource cameraAudioSrc;
     private PlayerController playerController;
     private List<AudioClip> laughTracks = new List<AudioClip>();
     private AudioClip laughTrack001;

@@ -26,7 +26,10 @@ public class AudioManager : MonoBehaviour
     private IEnumerator StartOneShotAudio(AudioSource audioSource, AudioClip audioClip, float delay)
     {
         yield return new WaitForSeconds(delay);
-        audioSource.PlayOneShot(audioClip);
+        if(audioSource && audioClip != null)
+        {
+            audioSource.PlayOneShot(audioClip);
+        }
         yield return null;
     }
 
