@@ -22,10 +22,9 @@ public class TriggerObject : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-<<<<<<< Updated upstream
-=======
+
             ice.GetComponent<Rigidbody>().isKinematic = false;
->>>>>>> Stashed changes
+
         }
     }
 }
