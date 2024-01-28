@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         Destroy(playerController.gameObject);
-        GameObject newCharlie = Instantiate(playerPrefab, SpawnPoint.transform);
+        GameObject newCharlie = Instantiate(playerPrefab, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         playerController = newCharlie.GetComponent<PlayerController>();
         yield return null;
     }
