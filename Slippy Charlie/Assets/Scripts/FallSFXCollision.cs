@@ -8,7 +8,7 @@ public class BodyCollision : MonoBehaviour
 
     private AudioManager audioManager;
     private GameManager gameManager;
-    public AudioSource cameraAudioSrc;
+    private AudioSource cameraAudioSrc;
     private List<AudioClip> fallSounds = new List<AudioClip>();
     private AudioClip fallsfx001;
     private AudioClip fallsfx002;

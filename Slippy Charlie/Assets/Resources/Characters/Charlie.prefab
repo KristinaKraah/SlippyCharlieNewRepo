@@ -1956,6 +1956,7 @@ MonoBehaviour:
   speed: 20
   jumpForce: 1600
   hips: {fileID: 3597898316017878904}
+  head: {fileID: 3705920540405318410}
   torso: {fileID: 6332616983723269614}
   isGrounded: 1
   isMoving: 0
@@ -3355,7 +3356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6371d1d2c0563804a91b235b2a6bbd80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraAudioSrc: {fileID: 0}
 --- !u!1 &8395384226476719008
 GameObject:
   m_ObjectHideFlags: 0

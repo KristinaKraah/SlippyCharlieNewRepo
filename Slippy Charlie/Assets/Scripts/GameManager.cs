@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
         }
         if(audioManager!= null)
         {
-            audioManager.PlayOneShotAudio(cameraAudioSrc, laughTracks[Random.Range(0, laughTracks.Count - 1)], .5f);
+            audioManager.PlayOneShotAudio(cameraAudioSrc, laughTracks[Random.Range(0, laughTracks.Count - 1)], .8f);
         }
 
         StartCoroutine(ResetPlayer(5f));

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
 
     public Rigidbody hips;
+    public Rigidbody head;
     public Rigidbody torso;
     private ConfigurableJoint hipJoint;
     private JointDrive hipJointDrive;
