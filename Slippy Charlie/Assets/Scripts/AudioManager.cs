@@ -18,10 +18,16 @@ public class AudioManager : MonoBehaviour
         audioSource.Play(delay);
     }
 
-    public void PlayOneShotAudio(AudioSource audioSource, AudioClip audioClip)
+    public void PlayOneShotAudio(AudioSource audioSource, AudioClip audioClip, float delay = 0)
     {
-        //audioToPlay.Play(delay);
+        StartCoroutine(StartOneShotAudio(audioSource, audioClip, delay));
+    }
+
+    private IEnumerator StartOneShotAudio(AudioSource audioSource, AudioClip audioClip, float delay)
+    {
+        yield return new WaitForSeconds(delay);
         audioSource.PlayOneShot(audioClip);
+        yield return null;
     }
 
 }

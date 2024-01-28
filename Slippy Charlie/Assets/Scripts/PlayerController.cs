@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     private float AngDriveYZ_PositionSpring_StartingValue;
     private float AngDriveYZ_PositionSpring_CurrentValue;
+    private GameManager gameManager;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         AngDriveYZ_PositionSpring_CurrentValue = AngDriveYZ_PositionSpring_StartingValue;
         hipJointDrive = hipJoint.angularYZDrive;
         isGrounded = true;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
 
@@ -54,9 +56,14 @@ public class PlayerController : MonoBehaviour
                 if (isMoving == true && (hips.rotation.x > .03f || hips.rotation.x < -.02f))
                 {
                     AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, 0, breakingDelta * Time.deltaTime);
-                    if (hipJoint.angularYZDrive.positionSpring <= 50f)
+                    if (hipJoint.angularYZDrive.positionSpring <= 50f && !playerIsDead)
                     {
                         playerIsDead = true;
+
+                        if(gameManager != null)
+                        {
+                            gameManager.OnDeath();
+                        }
                     }
                 }
                 else
@@ -67,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
                 hipJointDrive.positionSpring = AngDriveYZ_PositionSpring_CurrentValue;
                 hipJoint.angularYZDrive = hipJointDrive;
-                Debug.Log(AngDriveYZ_PositionSpring_CurrentValue);
+               
 
             }
         }
