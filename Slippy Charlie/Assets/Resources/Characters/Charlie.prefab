@@ -313,7 +313,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d9eaaa93fd16214ca7d6c5de4fd6d1c, type: 2}
+  - {fileID: 2100000, guid: 4fe88d66d989ff44782e824754a613f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -421,7 +421,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: dfdcfd00f9d308c4eb04fab96819e6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -505,7 +505,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.03784178, y: 0.018199028, z: 0}
+  m_ConnectedAnchor: {x: -0.03784178, y: 0.018199028, z: -0.043240998}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -673,7 +673,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 515b4c40d264c6849a5f73c6b064c558, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -755,7 +755,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.50000125, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3048588, y: 0, z: 0.01738125}
+  m_ConnectedAnchor: {x: -0.39257926, y: 0.30259967, z: 0.017382339}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -941,7 +941,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: dfdcfd00f9d308c4eb04fab96819e6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1023,7 +1023,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999952, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.18693532, y: -0.528994, z: 0.043353904}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1205,7 +1205,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d9eaaa93fd16214ca7d6c5de4fd6d1c, type: 2}
+  - {fileID: 2100000, guid: 4fe88d66d989ff44782e824754a613f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1313,7 +1313,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 515b4c40d264c6849a5f73c6b064c558, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1565,7 +1565,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 515b4c40d264c6849a5f73c6b064c558, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1647,7 +1647,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.3025997, z: 0}
+  m_ConnectedAnchor: {x: 0.3979498, y: 0.30259967, z: 0.057071425}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1829,7 +1829,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9b3b5877888624b8b512a5588ee3a4, type: 2}
+  - {fileID: 2100000, guid: 4fe88d66d989ff44782e824754a613f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1938,6 +1938,7 @@ MonoBehaviour:
   playerIsDead: 0
   breakingDelta: 100
   recoveryDelta: 50
+  allowUpdate: 0
 --- !u!1 &5102590581672821567
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,7 +2004,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 515b4c40d264c6849a5f73c6b064c558, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2085,7 +2086,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.12345012, y: -0.005453178, z: 0}
+  m_ConnectedAnchor: {x: -0.12345012, y: -0.005453178, z: -0.010838503}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2253,7 +2254,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: dfdcfd00f9d308c4eb04fab96819e6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2335,7 +2336,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.49999952, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.18693855, y: 0.57807493, z: 0.043353904}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2520,7 +2521,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 515b4c40d264c6849a5f73c6b064c558, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2604,7 +2605,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.021857308, y: 0.01821243, z: 0}
+  m_ConnectedAnchor: {x: -0.021857308, y: 0.01821243, z: -0.043239687}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2876,7 +2877,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: dfdcfd00f9d308c4eb04fab96819e6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2960,7 +2961,7 @@ ConfigurableJoint:
   m_Anchor: {x: -0.5, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -1.3930004, y: 1.682524, z: -0.60300004}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -3133,7 +3134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: 9f3c9667ce643644c8736bd7acb2e734, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3215,7 +3216,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.028728353, y: 0.2884073, z: 0}
+  m_ConnectedAnchor: {x: -0.17146765, y: 0.28840727, z: -0.5000786}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3466,7 +3467,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.02200014, y: 0.4115707, z: 0.08577663}
+  m_ConnectedAnchor: {x: -0.022000138, y: 0.41157067, z: 0.08577663}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3630,7 +3631,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: db9b3b5877888624b8b512a5588ee3a4, type: 2}
+  - {fileID: 2100000, guid: 4fe88d66d989ff44782e824754a613f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3735,7 +3736,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d9eaaa93fd16214ca7d6c5de4fd6d1c, type: 2}
+  - {fileID: 2100000, guid: 4fe88d66d989ff44782e824754a613f3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3843,7 +3844,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e065eba5d5ebd7141990b4cbf0db811f, type: 2}
+  - {fileID: 2100000, guid: dfdcfd00f9d308c4eb04fab96819e6b0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3927,7 +3928,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.021625945, y: 0.018199028, z: 0}
+  m_ConnectedAnchor: {x: -0.021625945, y: 0.018199028, z: -0.043240998}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
