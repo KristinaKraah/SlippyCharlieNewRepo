@@ -27,32 +27,44 @@ public class ArmRotator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(playerController!= null && !playerController.playerIsDead)
+        if(playerController!= null)
         {
-            if(playerController.isMoving)
+            if (!playerController.playerIsDead)
             {
-                if (!playerController.isGrounded)
+                if (playerController.isMoving)
                 {
-                    currentRotateSpeed = JumpRotateSpeed;
-                }
+                    if (!playerController.isGrounded)
+                    {
+                        currentRotateSpeed = JumpRotateSpeed;
+                    }
+                    else
+                    {
+                        currentRotateSpeed = walkRotateSpeed;
+                    }
 
-                t = Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount);
-                
-                if(isLeftLimb)
-                {
-                    cj.targetRotation = GetRotationTarget();
+                    t = Mathf.PingPong(Time.time * currentRotateSpeed, pingPongAngleAmount);
+
+                    if (isLeftLimb)
+                    {
+                        cj.targetRotation = GetRotationTarget();
+                    }
+                    else
+                    {
+                        cj.targetRotation = Quaternion.Inverse(GetRotationTarget());
+                    }
+
                 }
                 else
                 {
-                    cj.targetRotation = Quaternion.Inverse(GetRotationTarget());
+                    cj.targetRotation = Quaternion.identity;
                 }
-                
             }
             else
             {
                 cj.targetRotation = Quaternion.identity;
             }
         }
+        
       
     }
 

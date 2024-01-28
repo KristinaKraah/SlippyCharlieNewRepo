@@ -6,13 +6,14 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
-
-    public GameObject startingPoint;
     public AudioSource gameMusic;
+    public GameObject playerPrefab;
+
+    private Transform  playerStart;
+    private GameObject SpawnPoint;
     private AudioManager audioManager;
     private AudioSource cameraAudioSrc;
     private PlayerController playerController;
-
     private List<AudioClip> laughTracks = new List<AudioClip>();
     private AudioClip laughTrack001;
     private AudioClip laughTrack002;
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
         laughTrack014 = (AudioClip)Resources.Load("SFX/CrowdLaugh014");
         laughTrack015 = (AudioClip)Resources.Load("SFX/CrowdLaugh015");
         laughTrack016 = (AudioClip)Resources.Load("SFX/CrowdLaugh016");
+        playerPrefab = (GameObject)Resources.Load("Characters/Charlie");
     }
 
     // Start is called before the first frame update
@@ -56,7 +58,18 @@ public class GameManager : MonoBehaviour
     {
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         playerController = GameObject.FindObjectOfType<PlayerController>();
-        cameraAudioSrc =Camera.main.GetComponent<AudioSource>();
+        playerStart = playerController.gameObject.transform;
+        if (cameraAudioSrc == null)
+        {
+            Camera.main.gameObject.AddComponent<AudioSource>();
+        }
+        cameraAudioSrc = Camera.main.GetComponent<AudioSource>();
+
+        SpawnPoint = new GameObject("Spawn Point");
+        SpawnPoint.transform.SetPositionAndRotation(playerStart.position, playerStart.rotation);
+        
+       
+        Debug.Log(playerController.hips.gameObject);
         SetupLaughTrackList();
         StartGame();
     }
@@ -89,14 +102,21 @@ public class GameManager : MonoBehaviour
         if(audioManager!= null)
         {
             audioManager.PlayOneShotAudio(cameraAudioSrc, laughTracks[Random.Range(0, laughTracks.Count - 1)], .5f);
+            Debug.Log(laughTracks.Count);
         }
-       
+
+        StartCoroutine(ResetPlayer(5f));
+
 
     }
 
-    void Reset()
+    IEnumerator ResetPlayer(float delay)
     {
-        
+        yield return new WaitForSeconds(delay);
+        Destroy(playerController.gameObject);
+        GameObject newCharlie = Instantiate(playerPrefab, SpawnPoint.transform);
+        playerController = newCharlie.GetComponent<PlayerController>();
+        yield return null;
     }
 
 

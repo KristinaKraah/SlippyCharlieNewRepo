@@ -549,6 +549,10 @@ PrefabInstance:
       propertyPath: gameMusic
       value: 
       objectReference: {fileID: 1177270843}
+    - target: {fileID: 2593185466224691441, guid: 85b59457a91218448ae8bf2bb0333cb1, type: 3}
+      propertyPath: playerPrefab
+      value: 
+      objectReference: {fileID: 3751382803851125136, guid: ba4e89eb19da495469800ebfa7976306, type: 3}
     - target: {fileID: 6468870954485277621, guid: 85b59457a91218448ae8bf2bb0333cb1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.993118

@@ -32,59 +32,74 @@ public class PlayerController : MonoBehaviour
         hipJointDrive = hipJoint.angularYZDrive;
         isGrounded = true;
         gameManager = FindObjectOfType<GameManager>();
+        allowUpdate = true;
     }
 
 
     public float breakingDelta = 100f;
     public float recoveryDelta = 50f;
 
-
+    public bool allowUpdate;
     // Update is called once per frame
     void Update()
     {
-        hipJointDrive.positionDamper = hipJoint.angularYZDrive.positionDamper;
-        hipJointDrive.maximumForce = hipJoint.angularYZDrive.maximumForce;
-        hipJointDrive.useAcceleration = hipJoint.angularYZDrive.useAcceleration;
-
-        if (!playerIsDead)
+        if (allowUpdate)
         {
-            if (hipJoint != null)
-            {
-                // Just keep these values the same as the component in editor.
-                
-                //What we really want is to change the Angular Drive YZ Position Spring.
-                if (isMoving == true && (hips.rotation.x > .03f || hips.rotation.x < -.02f))
-                {
-                    AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, 0, breakingDelta * Time.deltaTime);
-                    if (hipJoint.angularYZDrive.positionSpring <= 50f && !playerIsDead)
-                    {
-                        playerIsDead = true;
+            hipJointDrive.positionDamper = hipJoint.angularYZDrive.positionDamper;
+            hipJointDrive.maximumForce = hipJoint.angularYZDrive.maximumForce;
+            hipJointDrive.useAcceleration = hipJoint.angularYZDrive.useAcceleration;
 
-                        if(gameManager != null)
-                        {
-                            gameManager.OnDeath();
+            if (!playerIsDead)
+            {
+                if (hipJoint != null)
+                {
+                    // Just keep these values the same as the component in editor.
+
+                    //What we really want is to change the Angular Drive YZ Position Spring.
+                    if (isMoving == true && (hips.rotation.x > .03f || hips.rotation.x < -.02f))
+                    {
+                        AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, 0, breakingDelta * Time.deltaTime);
+                        if (hipJoint.angularYZDrive.positionSpring <= 50f && !playerIsDead)
+                        {                          
+                            hipJoint.angularYZDrive = hipJointDrive;
+                            if (gameManager != null)
+                            {
+                                gameManager.OnDeath();
+                            }
+                            SetPlayerDeadState(true);
+                            hipJointDrive.positionDamper = hipJoint.angularYZDrive.positionDamper;
+                            hipJointDrive.maximumForce = hipJoint.angularYZDrive.maximumForce;
+                            hipJointDrive.useAcceleration = hipJoint.angularYZDrive.useAcceleration;
+                            hipJointDrive.positionSpring = 0;
+                            hipJoint.angularYZDrive = hipJointDrive;                          
                         }
                     }
+                    else
+                    {
+
+                        AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, AngDriveYZ_PositionSpring_StartingValue, recoveryDelta * Time.deltaTime);
+                    }
+
+                    hipJointDrive.positionSpring = AngDriveYZ_PositionSpring_CurrentValue;
+                    hipJoint.angularYZDrive = hipJointDrive;
+
+
                 }
-                else
-                {
-
-                    AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, AngDriveYZ_PositionSpring_StartingValue, recoveryDelta * Time.deltaTime);
-                }
-
-                hipJointDrive.positionSpring = AngDriveYZ_PositionSpring_CurrentValue;
-                hipJoint.angularYZDrive = hipJointDrive;
-               
-
             }
         }
         else
         {
-
+            AngDriveYZ_PositionSpring_CurrentValue = 0;
             hipJointDrive.positionSpring = 0;
             hipJoint.angularYZDrive = hipJointDrive;
         }
      
+    }
+
+    public void SetPlayerDeadState(bool isDead = false)
+    {
+        playerIsDead = isDead;
+        allowUpdate = false;
     }
 
     public float MoveTowards(float current, float target, float maxDelta)
@@ -94,6 +109,19 @@ public class PlayerController : MonoBehaviour
             return target;
         }
         return current + Mathf.Sign(target - current) * maxDelta;
+    }
+
+    public IEnumerator Reset(float delay = 0)
+    {
+        Debug.Log("reset called");
+        yield return new WaitForSeconds(delay);
+        SetPlayerDeadState(false);
+        AngDriveYZ_PositionSpring_CurrentValue = AngDriveYZ_PositionSpring_StartingValue;
+        hipJointDrive.positionSpring = AngDriveYZ_PositionSpring_CurrentValue;
+        hipJoint.angularYZDrive = hipJointDrive;
+        AngDriveYZ_PositionSpring_CurrentValue = AngDriveYZ_PositionSpring_StartingValue;
+        allowUpdate = true; 
+        yield return null;
     }
 
     private void FixedUpdate()
