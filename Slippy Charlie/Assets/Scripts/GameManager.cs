@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public AudioSource gameMusic;
     public GameObject playerPrefab;
+    public Cinemachine.CinemachineVirtualCamera virtualCamera; 
 
     public GameObject transitionTarget;
 
@@ -129,6 +130,8 @@ public class GameManager : MonoBehaviour
         Destroy(playerController.gameObject);
         GameObject newCharlie = Instantiate(playerPrefab, SpawnPoint.transform.position, SpawnPoint.transform.rotation);
         playerController = newCharlie.GetComponent<PlayerController>();
+        virtualCamera.Follow = newCharlie.transform;
+        virtualCamera.LookAt = newCharlie.transform.Find("Head").transform;
         yield return null;
     }
 

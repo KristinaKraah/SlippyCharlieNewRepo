@@ -22,8 +22,6 @@ public class TriggerObject : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            set
         }
-
     }
 }

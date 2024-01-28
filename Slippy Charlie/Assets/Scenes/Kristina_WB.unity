@@ -4736,8 +4736,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903072314}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.032077346, y: 0.04838986, z: -0.0015548426, w: 0.9983121}
-  m_LocalPosition: {x: -12.101407, y: 7.2921705, z: -88.57145}
+  m_LocalRotation: {x: 0.032076534, y: 0.048874848, z: -0.0015704235, w: 0.9982885}
+  m_LocalPosition: {x: -12.180808, y: 7.29217, z: -88.56382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5290,6 +5290,10 @@ PrefabInstance:
       propertyPath: gameMusic
       value: 
       objectReference: {fileID: 1244009838}
+    - target: {fileID: 2593185466224691441, guid: 85b59457a91218448ae8bf2bb0333cb1, type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 903072315}
     - target: {fileID: 2593185466224691441, guid: 85b59457a91218448ae8bf2bb0333cb1, type: 3}
       propertyPath: transitionTarget
       value: 
@@ -5918,7 +5922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transitionDuration: 4
-  currentDirection: 1
+  wantedDirection: 1
 --- !u!114 &1071201778
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9062,8 +9066,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656601370}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.032077346, y: 0.04838986, z: -0.0015548426, w: 0.9983121}
-  m_LocalPosition: {x: -12.101407, y: 7.2921705, z: -88.57145}
+  m_LocalRotation: {x: 0.032076534, y: 0.048874848, z: -0.0015704235, w: 0.9982885}
+  m_LocalPosition: {x: -12.180808, y: 7.29217, z: -88.56382}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

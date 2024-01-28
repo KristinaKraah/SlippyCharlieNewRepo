@@ -19,13 +19,15 @@ public class Transition : MonoBehaviour
     }
 
     [SerializeField]
-    TransitionDirection currentDirection;
+    public TransitionDirection wantedDirection;
+    private TransitionDirection currentDirection;
 
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        if (currentDirection == TransitionDirection.In)
+        currentDirection = wantedDirection;
+        if (wantedDirection == TransitionDirection.In)
         {
             rectTransform.localScale = new Vector3(2, 2, 1);
         }
@@ -62,7 +64,7 @@ public class Transition : MonoBehaviour
             if (currentDirection == TransitionDirection.In)
             {
                 rectTransform.localScale = new Vector3(0, 0, 1);
-                gameObject.SetActive(false);
+                // gameObject.SetActive(false);
                 play = false;
             } else {
                 currentDirection = TransitionDirection.In;
@@ -93,8 +95,9 @@ public class Transition : MonoBehaviour
 
     public void Play()
     {
-        gameObject.SetActive(true);
         play = true;
+        transitionElapsedTime = 0;
+        currentDirection = wantedDirection;
     }
 }
 
