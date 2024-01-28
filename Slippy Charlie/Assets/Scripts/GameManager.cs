@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public AudioSource gameMusic;
     public GameObject playerPrefab;
 
+    public GameObject transitionTarget;
+
     private Transform  playerStart;
     private GameObject SpawnPoint;
     private AudioManager audioManager;
@@ -31,6 +33,7 @@ public class GameManager : MonoBehaviour
     private AudioClip laughTrack014;
     private AudioClip laughTrack015;
     private AudioClip laughTrack016;
+    private Transition transition;
 
     private void Awake()
     {
@@ -51,6 +54,10 @@ public class GameManager : MonoBehaviour
         laughTrack015 = (AudioClip)Resources.Load("SFX/CrowdLaugh015");
         laughTrack016 = (AudioClip)Resources.Load("SFX/CrowdLaugh016");
         playerPrefab = (GameObject)Resources.Load("Characters/Charlie");
+
+        if (transitionTarget) {
+            transition = transitionTarget.GetComponent<Transition>();
+        }
     }
 
     // Start is called before the first frame update
@@ -69,7 +76,7 @@ public class GameManager : MonoBehaviour
         SpawnPoint.transform.SetPositionAndRotation(playerStart.position, playerStart.rotation);
         
        
-        Debug.Log(playerController.hips.gameObject);
+        // Debug.Log(playerController.hips.gameObject);
         SetupLaughTrackList();
         StartGame();
     }
@@ -102,12 +109,18 @@ public class GameManager : MonoBehaviour
         if(audioManager!= null)
         {
             audioManager.PlayOneShotAudio(cameraAudioSrc, laughTracks[Random.Range(0, laughTracks.Count - 1)], .5f);
-            Debug.Log(laughTracks.Count);
         }
 
         StartCoroutine(ResetPlayer(5f));
+        StartCoroutine(NextScreen(2f, 3f));
+        
+    }
 
-
+    IEnumerator NextScreen(float delay, float duration) {
+        yield return new WaitForSeconds(delay);
+        transition.Play();
+        transition.SetDuration(duration);
+        yield return null;
     }
 
     IEnumerator ResetPlayer(float delay)

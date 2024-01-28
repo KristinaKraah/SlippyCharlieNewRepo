@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class Transition : MonoBehaviour
 {
-    RectTransform rectTransform;
     [SerializeField]
     float transitionDuration = 4;
-
+    private bool play = false;
+    private RectTransform rectTransform;
     private float transitionElapsedTime = 0;
     private float transitionAmount
     {
@@ -38,6 +38,7 @@ public class Transition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!play) return;
         if (currentDirection == TransitionDirection.In)
         {
             rectTransform.localScale = Vector3.Lerp(
@@ -56,17 +57,44 @@ public class Transition : MonoBehaviour
         }
         transitionElapsedTime += Time.deltaTime;
 
-        // If you want to alternate between in and out
-        // if (rectTransform.localScale.x <= 0.01f && currentDirection == TransitionDirection.In)
-        // {
-        //     currentDirection = TransitionDirection.Out;
-        //     transitionElapsedTime = 0;
-        // }
-        // else if (rectTransform.localScale.x >= 2f && currentDirection == TransitionDirection.Out)
-        // {
-        //     currentDirection = TransitionDirection.In;
-        //     transitionElapsedTime = 0;
-        // }
+        if (transitionElapsedTime >= transitionDuration)
+        {
+            if (currentDirection == TransitionDirection.In)
+            {
+                rectTransform.localScale = new Vector3(0, 0, 1);
+                gameObject.SetActive(false);
+                play = false;
+            } else {
+                currentDirection = TransitionDirection.In;
+                transitionElapsedTime = 0;
+            }
+        }
+    }
+
+    // public void ChangeDirection(string direction)
+    // {
+    //     switch (direction)
+    //     {
+    //         case "In":
+    //             currentDirection = TransitionDirection.In;
+    //             break;
+    //         case "Out":
+    //             currentDirection = TransitionDirection.Out;
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
+
+    public void SetDuration(float duration)
+    {
+        transitionDuration = duration;
+    }
+
+    public void Play()
+    {
+        gameObject.SetActive(true);
+        play = true;
     }
 }
 

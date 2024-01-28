@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SlippyCharlie_StartScreen.unity
+    guid: 9e515c4b5c0ad2c49a832363a77cbf00
+  - enabled: 1
+    path: Assets/Scenes/Kristina_WB.unity
+    guid: 3d625eef9c2f02343b206fe46e203642
   m_configObjects: {}
