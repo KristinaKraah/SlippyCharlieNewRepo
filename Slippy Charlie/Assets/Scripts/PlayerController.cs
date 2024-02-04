@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public bool playerIsDead = false;
 
     private float AngDriveYZ_PositionSpring_StartingValue;
-    private float AngDriveYZ_PositionSpring_CurrentValue;
+    public float AngDriveYZ_PositionSpring_CurrentValue;
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public float recoveryDelta = 50f;
 
     public bool allowUpdate;
+  
     // Update is called once per frame
     void Update()
     {
@@ -54,12 +55,14 @@ public class PlayerController : MonoBehaviour
             {
                 if (hipJoint != null)
                 {
-                    // Just keep these values the same as the component in editor.
+
+                    float localFwdVel = Mathf.Abs(Vector3.Dot(hips.gameObject.transform.forward, hips.velocity));
+                    Debug.Log("fwd velocity is: " + localFwdVel);
 
                     //What we really want is to change the Angular Drive YZ Position Spring.
-                    if (isMoving == true && (hips.rotation.x > .03f || hips.rotation.x < -.02f))
+                    if (isMoving == true && (hips.rotation.x > .02f || hips.rotation.x < -.02f) || localFwdVel >.5f)
                     {
-                        AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, 0, breakingDelta * Time.deltaTime);
+                        AngDriveYZ_PositionSpring_CurrentValue = MoveTowards(AngDriveYZ_PositionSpring_CurrentValue, 0, (breakingDelta*VelocityMultiplier(hips,0,5))* Time.deltaTime);
                         if (hipJoint.angularYZDrive.positionSpring <= 50f && !playerIsDead)
                         {                          
                             hipJoint.angularYZDrive = hipJointDrive;
@@ -111,6 +114,21 @@ public class PlayerController : MonoBehaviour
         }
         return current + Mathf.Sign(target - current) * maxDelta;
     }
+
+    public float VelocityMultiplier(Rigidbody rb, float minValue, float maxValue)
+    {
+        Vector3 rbForward = rb.gameObject.transform.forward;
+        float localFwdVel = Mathf.Abs(Vector3.Dot(rbForward, rb.velocity));
+
+        float normalizedVelocity = Mathf.Clamp(localFwdVel, minValue, maxValue)/maxValue;
+
+        //Debug.Log("normalized velocity is: " + normalizedVelocity);
+    
+
+        return normalizedVelocity;
+
+    }
+
 
     public IEnumerator Reset(float delay = 0)
     {

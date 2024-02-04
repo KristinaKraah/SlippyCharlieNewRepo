@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 545201833247432982}
   - component: {fileID: 2147460552849368563}
   - component: {fileID: 4413996010331008275}
-  - component: {fileID: 8068800204779206297}
   m_Layer: 3
   m_Name: Capsule
   m_TagString: Player
@@ -462,29 +461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb2e1ba83ab3d844989e503352a994b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!136 &8068800204779206297
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210391197713262572}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.88
-  m_Height: 63.26
-  m_Direction: 0
-  m_Center: {x: -17.04, y: 0.12, z: 0}
 --- !u!1 &2047450469945352474
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +555,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047450469945352474}
-  m_Material: {fileID: 13400000, guid: cb6c4af5510e3264d80cb23675a9c7eb, type: 2}
+  m_Material: {fileID: 13400000, guid: 922f352180cea5b409d18e240a4e2a8c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1961,8 +1937,9 @@ MonoBehaviour:
   isGrounded: 1
   isMoving: 0
   playerIsDead: 0
-  breakingDelta: 100
-  recoveryDelta: 50
+  AngDriveYZ_PositionSpring_CurrentValue: 0
+  breakingDelta: 400
+  recoveryDelta: 400
   allowUpdate: 0
 --- !u!1 &5102590581672821567
 GameObject:
@@ -3055,7 +3032,7 @@ ConfigurableJoint:
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 250
+    positionSpring: 500
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -3911,7 +3888,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8936485446070097975}
-  m_Material: {fileID: 13400000, guid: cb6c4af5510e3264d80cb23675a9c7eb, type: 2}
+  m_Material: {fileID: 13400000, guid: 922f352180cea5b409d18e240a4e2a8c, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

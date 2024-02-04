@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Obstacle_IcePatch : MonoBehaviour
 {
 
     PlayerController controller;
-    bool addForce;
+    bool playerIsOnIce = false;
+    bool hasSwitched = false;
     public float slipForce = 1000;
+    public PhysicMaterial physMaterial_Ice;
+    public PhysicMaterial physMaterial_CharlieLegs;
+
 
     private void Start()
     {
@@ -19,27 +24,54 @@ public class Obstacle_IcePatch : MonoBehaviour
     {
         if(controller != null)
         {
-            if(addForce)
+            if(playerIsOnIce && controller.isGrounded)
             {
                 Debug.Log("it's working");
-
-
-                //controller.head.AddForce(controller.hips.transform.forward * slipForce * 1.5f);
-
-                //controller.SetPlayerDeadState(true);
+                if(!hasSwitched)
+                {
+                    if (physMaterial_Ice != null)
+                    {
+                        Collider[] colliders = controller.GetComponentsInChildren<Collider>();
+                        foreach (Collider collider in colliders)
+                        {
+                            collider.material = physMaterial_Ice;
+                        }
+                        hasSwitched = true;
+                    }
+                }
+               
             }
+            else
+            {
+                if(!hasSwitched)
+                {
+                    if (physMaterial_CharlieLegs != null)
+                    {
+                        Collider[] colliders = controller.GetComponentsInChildren<Collider>();
+                        foreach (Collider collider in colliders)
+                        {
+                            collider.material = physMaterial_CharlieLegs;
+                        }
+                        Debug.Log("change charlie");
+                        hasSwitched = true;
+                    }
+                }
+                
+            }
+
         }
+      
+        
     }
 
     void OnTriggerEnter(Collider other)
     {
+
         if (other.tag == "Player")
-        {
+        {        
             controller = other.gameObject.transform.root.GetComponent<PlayerController>();
-            if(controller.isGrounded)
-            {
-                addForce = true;
-            }
+            hasSwitched = false;
+            playerIsOnIce = true;
         }
     }
 
@@ -47,11 +79,9 @@ public class Obstacle_IcePatch : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            controller = other.gameObject.GetComponent<PlayerController>();
-            if (controller.isGrounded)
-            {
-                addForce = false;
-            }
+            controller = other.gameObject.transform.root.GetComponent<PlayerController>();
+            playerIsOnIce = false;
+            hasSwitched = false;
         }
     }
 
